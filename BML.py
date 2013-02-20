@@ -20,10 +20,29 @@ def move(cars):
 	redcar = cars[:,cars[2,] == 1]
 	bluecar = cars[:,cars[2,] == 2]
 	carsnew = cars
+	#move cars
 	carsnew[0,:] = carsnew[0,:] + 1
+	# check and thow to start if off edge.
 	off = carsnew[0,:] > n
 	carsnew[0,off] = 0
-	return carsnew
+
+	old = ''
+	for i in range(len(cars[1,:])):
+	    old += str(cars[:,i])	# build string of old positions.
+	block = np.repeat(bool(),len(cars[0,:]))
+	for i in range(len(cars[1,:])):
+	    block[i] =  str(carsnew[:,i]) in y	# compare old and new, any conflict marked true.
+
+	return block
+
+
+for i in range(len(t[1,:])):
+	    y += str(t[:,i])	# build string of old positions.
+
+for i in range(len(t[1,:])):
+	    print str(tnew[:,i]) in y	# compare old and new, any conflict marked true.
+
+
 
 #	for i range(o,t):
 #		if t%2==0:	#move red across
